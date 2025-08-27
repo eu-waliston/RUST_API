@@ -145,5 +145,14 @@ async fn create_item(
         )
     })?;
 
-    let item = Item
+    let item = Item {
+        id,
+        name: payload.name,
+        value: payload.value,
+        created_at: now,
+    };
+
+    Ok((StatusCode::CREATED, Json(item)))
 }
+
+
